@@ -21,8 +21,7 @@ public class CustomUserDetails implements UserDetails {
 		super();
 		this.user = user;
 	}
-
-	@SuppressWarnings("unchecked")
+ 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
