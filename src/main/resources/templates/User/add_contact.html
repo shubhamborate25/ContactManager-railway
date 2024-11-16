@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{User/base::layout(~{::section} )}">
+<head>
+
+
+</head>
+<body>
+
+	<section>
+
+		<div class="card mr-3 mb-3">
+			<div class="card-body">
+				<h2 class="text-center">Add Contact</h2>
+				<div class="container-fluid mt-3">
+					<div class="row">
+						<div class="col-md-10 offset-md-1">
+
+							<div th:if="${msg}"
+								class="alert alert-success text-center  alert-dismissible">
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<strong th:text="${msg}"> </strong>
+							</div>
+
+							<form method="post" th:action="@{/user/contact-process}"
+								enctype="multipart/form-data" class="mt-2">
+								<div class="form-group">
+
+
+									<div class="col-auto">
+										<label class="sr-only" for="inlineFormInputGroup">Enter
+											Name</label>
+										<div class="input-group mb-2">
+											<div class="input-group-prepend ">
+												<div class="input-group-text pr-3 ">
+													<i class="fa fa-plus"></i>
+												</div>
+											</div>
+											<input type="text" name="name" class="form-control"
+												id="inlineFormInputGroup" placeholder="Enter Name">
+										</div>
+									</div>
+
+									<div class="col-auto mt-3">
+										<label class="sr-only" for="inlineFormInputGroup">Email</label>
+										<div class="input-group mb-2">
+											<div class="input-group-prepend ">
+												<div class="input-group-text  ">
+													<i class="fa  fa-envelope"></i>
+												</div>
+											</div>
+											<input type="email" name="email" class="form-control"
+												id="inlineFormInputGroup" placeholder="Email">
+										</div>
+									</div>
+
+									<div class="col-auto mt-3">
+										<label class="sr-only" for="inlineFormInputGroup">Phone
+										</label>
+										<div class="input-group mb-2">
+											<div class="input-group-prepend ">
+												<div class="input-group-text pr-3 ">
+													<i class="fa  fa-phone"></i>
+												</div>
+											</div>
+											<input type="text" class="form-control"
+												id="inlineFormInputGroup" name="phone"
+												placeholder="Phone Number ">
+										</div>
+									</div>
+
+									<div class="col-auto mt-3">
+										<label class="sr-only" for="inlineFormInputGroup">Work</label>
+										<div class="input-group mb-2">
+											<div class="input-group-prepend ">
+												<div class="input-group-text  ">
+													<i class="fa  fa-suitcase"></i>
+												</div>
+											</div>
+											<input type="text" class="form-control"
+												id="inlineFormInputGroup" name="work" placeholder="Work">
+										</div>
+									</div>
+
+									<div class="col-auto mt-3">
+										<label for="inlineFormInputGroup"> Upload Image </label>
+										<div class="input-group mb-2">
+
+											<input type="file" class="form-control"
+												id="inlineFormInputGroup" name="img">
+										</div>
+									</div>
+
+									<div class="col-auto mt-3">
+										<label class="sr-only" for="inlineFormInputGroup">Enter
+											Description </label>
+										<textarea name="description" id="user-message" cols="20"
+											rows="5" class="form-control"
+											placeholder="Enter Description..."></textarea>
+
+									</div>
+
+									<div class="col-auto mt-3 text-center ">
+									 <input class="form-check-input"
+											type="checkbox" name="favorite"  id="flexCheckDefault">
+										<label class="form-check-label" for="flexCheckDefault">
+											: Favorite</label>
+											
+									</div>
+									<div class="  mt-5 d-flex justify-content-center">
+										<button style="width: 60%"
+											class="btn btn-primary text-center  ">Submit</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+
+
+</body>
+</html>
+

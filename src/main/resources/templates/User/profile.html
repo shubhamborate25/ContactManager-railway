@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{User/base::layout(~{::section} )}">
+<head>
+
+
+</head>
+<body>
+
+	<section>
+
+		<div class="card mr-3 mb-3">
+			<div class="card-body">
+				<h2 class="text-center">Profile</h2>
+				<div class="container-fluid mt-3 text-center  ">
+
+					<div th:if="${session.msg}"
+						class="alert alert-success text-center  alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						<strong th:text="${session.msg}"> </strong>
+						<th:block th:text="${@sessionHelper.removesession()}"></th:block>
+					</div>
+
+					<img class="img-circle" style="height: 200px; width: 200px;"
+						th:src="@{'/img/'+${user.image}}">
+					<h4 class="mt-2" th:text="${user.name}"></h4>
+
+
+					<div class="col-md-10 offset-md-1">
+
+						<table class="table mt-5">
+
+							<tbody>
+								<tr>
+									<th scope="row">#ID</th>
+									<td th:text="${user.id}"></td>
+								</tr>
+
+								<tr>
+									<th scope="row">Email</th>
+									<td th:text="${user.email}"></td>
+								</tr>
+
+								<tr>
+									<th scope="row">Phone</th>
+									<td th:text=" ${user.phone }"></td>
+								</tr>
+
+
+							</tbody>
+						</table>
+
+						<div class="mt-2">
+							<a th:href="@{'/user/update-profile?pid='+${user.id}}"><button
+									type="button" class="btn btn-success  btn-lg btn-block">
+									Update</button></a>
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{User/base::layout(~{::section} )}">
+<head>
+
+
+</head>
+<body>
+
+	<section>
+
+		<div class="card mr-3 mb-3">
+			<div class="card-body">
+				<h2 class="text-center">Update Contact</h2>
+				<div class="container-fluid mt-3">
+					<div class="row">
+						<div class="col-md-10 offset-md-1">
+
+
+							<form method="post" th:action="@{/user/update-process}"
+								enctype="multipart/form-data" class="mt-2">
+								<div class="form-group">
+
+									<input type="hidden" name="cid" class="form-control"
+										id="inlineFormInputGroup" th:value="${contact.cid}"
+										placeholder="Enter Name">
+
+									<div class="col-auto">
+										<label class="sr-only" for="inlineFormInputGroup">Enter
+											Name</label>
+										<div class="input-group mb-2">
+											<div class="input-group-prepend ">
+												<div class="input-group-text pr-3 ">
+													<i class="fa fa-plus"></i>
+												</div>
+											</div>
+											<input type="text" name="name" class="form-control"
+												id="inlineFormInputGroup" th:value="${contact.name}"
+												placeholder="Enter Name">
+										</div>
+									</div>
+
+									<div class="col-auto mt-3">
+										<label class="sr-only" for="inlineFormInputGroup">Email</label>
+										<div class="input-group mb-2">
+											<div class="input-group-prepend ">
+												<div class="input-group-text  ">
+													<i class="fa  fa-envelope"></i>
+												</div>
+											</div>
+											<input type="email" name="email" class="form-control"
+												id="inlineFormInputGroup" th:value="${contact.email}"
+												placeholder="Email">
+										</div>
+									</div>
+
+									<div class="col-auto mt-3">
+										<label class="sr-only" for="inlineFormInputGroup">Phone
+										</label>
+										<div class="input-group mb-2">
+											<div class="input-group-prepend ">
+												<div class="input-group-text pr-3 ">
+													<i class="fa  fa-phone"></i>
+												</div>
+											</div>
+											<input type="text" class="form-control"
+												id="inlineFormInputGroup" th:value="${contact.phone}"
+												name="phone" placeholder="Phone Number ">
+										</div>
+									</div>
+
+									<div class="col-auto mt-3">
+										<label class="sr-only" for="inlineFormInputGroup">Work</label>
+										<div class="input-group mb-2">
+											<div class="input-group-prepend ">
+												<div class="input-group-text  ">
+													<i class="fa  fa-suitcase"></i>
+												</div>
+											</div>
+											<input type="text" class="form-control"
+												id="inlineFormInputGroup" th:value="${contact.work}"
+												name="work" placeholder="Work">
+										</div>
+									</div>
+
+									<div class="col-auto mt-3 ">
+										<label for="inlineFormInputGroup"> Upload Image </label>
+										<div class="input-group mb-2">
+
+											<input type="file" class="form-control"
+												id="inlineFormInputGroup" name="img">
+										</div>
+										<div class="text-center">
+											<img alt="" style="height: 200px; width: 200px;"
+												th:src="@{'/img/'+${contact.imgurl}}">
+										</div>
+
+									</div>
+
+									<div class="col-auto mt-3">
+										<label class="sr-only" for="inlineFormInputGroup">Enter
+											Description </label>
+										<textarea name="description" id="user-message" cols="20"
+											rows="5" class="form-control"
+											placeholder="Enter Description..."
+											th:text="${contact.description}">  </textarea>
+
+
+									</div>
+
+									<div class="col-auto mt-3 text-center "  th:if="${check}">
+										<input class="form-check-input" type="checkbox"
+											name="favorite" id="flexCheckDefault" checked > <label
+											class="form-check-label" for="flexCheckDefault"> :
+											Favorite</label>
+
+									</div>
+									
+									<div class="col-auto mt-3 text-center " th:unless="${check}">
+									 <input class="form-check-input"
+											type="checkbox" name="favorite"  id="flexCheckDefault">
+										<label class="form-check-label" for="flexCheckDefault">
+											: Favorite</label> 
+									</div>
+								   
+
+									<div class="  mt-5 d-flex justify-content-center">
+										<button style="width: 60%"
+											class="btn btn-primary text-center  ">Update Contact</button>
+									</div>
+								</div>
+
+							</form>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+
+
+</body>
+</html>
+

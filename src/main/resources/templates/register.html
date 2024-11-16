@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section},~{::style})}">
+<head>
+
+<style type="text/css">
+/* Import Google font - Poppins */
+@import
+	url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap")
+	;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0px;
+	background: rgb(130, 106, 251);
+	align-items: center;
+}
+
+.container2 {
+	position: relative;
+	max-width: 550px;
+	width: 100%;
+	background: #fff;
+	padding: 25px;
+	border-radius: 8px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.container2 header {
+	font-size: 1.5rem;
+	color: #333;
+	font-weight: 500;
+	text-align: center;
+}
+
+.container2 .form {
+	margin-top: 30px;
+}
+
+.form .input-box {
+	width: 100%;
+	margin-top: 10px;
+}
+
+.input-box label {
+	color: #333;
+}
+
+.form :where(.input-box input, .select-box) {
+	position: relative;
+	height: 50px;
+	width: 100%;
+	outline: none;
+	font-size: 1rem;
+	color: #707070;
+	margin-top: 8px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	padding: 0 15px;
+}
+
+.input-box input:focus {
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.form .column {
+	display: flex;
+	column-gap: 15px;
+}
+
+.address :where(input, .select-box) {
+	margin-top: 15px;
+}
+
+.select-box select {
+	height: 100%;
+	width: 100%;
+	outline: none;
+	border: none;
+	color: #707070;
+	font-size: 1rem;
+}
+
+.form button {
+	height: 55px;
+	width: 100%;
+	color: #fff;
+	font-size: 1rem;
+	font-weight: 400;
+	margin-top: 30px;
+	border: none;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	background: rgb(130, 106, 251);
+}
+
+.form button:hover {
+	background: rgb(88, 56, 250);
+}
+/*Responsive*/
+@media screen and (max-width: 500px) {
+	.form .column {
+		flex-wrap: wrap;
+	}
+	.form :where(.gender-option, .gender) {
+		row-gap: 15px;
+	}
+}
+</style>
+
+
+<meta charset="UTF-8">
+</head>
+<body>
+
+
+	<section class="container2 justify-content-center ">
+
+		<header>Registration Form</header>
+
+		<div th:if="${msg}"
+			class="alert alert-success text-center  alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong th:text="${msg}"> </strong>
+		</div>
+
+		<div th:if="${error}"
+			class="alert alert-s text-center  alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong th:text="${error}"> </strong>
+		</div>
+
+		<form action="process" class="form" th:method="post"
+			th:object="${user}" enctype="multipart/form-data">
+
+			<div class="input-box">
+				<label>Full Name</label> <input type="text"
+					placeholder="Enter full name" class="form-control "
+					th:classappend="${#fields.hasErrors('name')}?'is-invalid':''"
+					th:value="${user.name}" name="name" required />
+				<div id="validationServer03Feedback" class="invalid-feedback"
+					th:each="e:${#fields.errors('name')}" th:text="${e}"></div>
+			</div>
+			<div class="input-box">
+				<label>Email Address</label> <input type="text"
+					placeholder="Enter email address" class="form-control "
+					th:classappend="${#fields.hasErrors('email')}?'is-invalid':''"
+					th:value="${user.email}" name="email" required />
+				<div id="validationServer03Feedback" class="invalid-feedback"
+					th:each="e:${#fields.errors('email')}" th:text="${e}"></div>
+			</div>
+			<div class="input-box">
+				<label>Phone Number</label> <input type="number"
+					placeholder="Enter phone number" class="form-control "
+					th:classappend="${#fields.hasErrors('phone')}?'is-invalid':''"
+					th:value="${user.phone}" name="phone" required />
+				<div id="validationServer03Feedback" class="invalid-feedback"
+					th:each="e:${#fields.errors('phone')}" th:text="${e}"></div>
+
+			</div>
+			<!-- <div class="input-box"> -->
+			<label class="mt-2">Profile</label> <input type="file"
+				class="form-control " name="profile" required />
+
+			</div>
+			<div class="input-box">
+				<label>Password</label> <input type="password"
+					placeholder="Enter Password  " class="form-control "
+					th:classappend="${#fields.hasErrors('password')}?'is-invalid':''"
+					th:value="${user.password}" name="password" required />
+				<div id="validationServer03Feedback" class="invalid-feedback"
+					th:each="e:${#fields.errors('password')}" th:text="${e}"></div>
+			</div>
+
+			<button>Submit</button>
+		</form>
+	</section>
+
+</body>
+</html>
