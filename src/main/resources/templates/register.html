@@ -177,7 +177,7 @@ body {
 				<label>Password</label> <input type="password"
 					placeholder="Enter Password  " class="form-control "
 					th:classappend="${#fields.hasErrors('password')}?'is-invalid':''"
-					th:value="${user.password}" name="password" required />
+					  name="password" required />
 				<div id="validationServer03Feedback" class="invalid-feedback"
 					th:each="e:${#fields.errors('password')}" th:text="${e}"></div>
 			</div>

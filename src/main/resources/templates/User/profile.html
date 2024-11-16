@@ -22,7 +22,7 @@
 					</div>
 
 					<img class="img-circle" style="height: 200px; width: 200px;"
-						th:src="@{'/img/'+${user.image}}">
+						th:src=" ${user.image} ">
 					<h4 class="mt-2" th:text="${user.name}"></h4>
 
 

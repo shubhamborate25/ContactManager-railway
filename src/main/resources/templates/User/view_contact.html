@@ -1,4 +1,4 @@
- <!doctype html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{User/base::layout(~{::section} )}">
 <head>
@@ -45,7 +45,7 @@
 
 								<div class="media">
 									<div class="pull-left">
-										<img class="img-circle" th:src="@{'/img/'+${c.imgurl}}">
+										<img class="img-circle" th:src=" ${c.imgurl}">
 									</div>
 
 
