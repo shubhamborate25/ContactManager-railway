@@ -309,6 +309,8 @@ public class UserController {
 	public String submitform(@Valid @ModelAttribute("user") User user, BindingResult result,
 			@RequestParam("profile") MultipartFile profile, Model model) {
 
+		model.addAttribute("title", "Register");
+		model.addAttribute("register", "active");
 		if (result.hasErrors()) {
 			System.out.println(result);
 			return "register";
