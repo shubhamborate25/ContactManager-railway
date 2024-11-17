@@ -105,7 +105,8 @@ public class UserController {
 	@PostMapping("/user/contact-process")
 	public String contactprocess(@ModelAttribute("contact") Contact contact, @RequestParam("img") MultipartFile img,
 			@RequestParam(value = "favorite", defaultValue = "false") boolean fav, Model model, Principal principal) {
-
+		
+                model.addAttribute("title", "Add Contact");
 		String name = principal.getName();
 		User user = userrepo.getUsername(name);
 		contact.setFavorite(fav);
