@@ -1,4 +1,4 @@
-# Contact Manager Live on Railway.app
+# Contact Manager 
 Developed a Contact Manager application using Spring Boot as the backend framework .
 Implemented Spring Security for authentication and authorization, enabling role-based access control to protect user data.  
 Integrated CRUD operations for managing contacts, allowing users to create, view, update, and delete contact information securely.
